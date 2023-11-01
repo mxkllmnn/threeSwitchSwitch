@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>threeSwitchSwitch</title>
+    <style>
+      html,
+      body {
+        cursor: grab;
+        margin: 0;
+        height: 100%;
+        line-height: 28px;
+      }
+      body:active {
+        cursor: grabbing;
+      }
+      #c {
+        width: 100%;
+        height: 100%; /*set to less than 100% for debbuging*/
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+      .API {
+        z-index: 1;
+        position: relative;
+        top: 20px;
+        left: 20px;
+        /*pointer-events: none;*/
+      }
+      .cursorPointer {
+        cursor: pointer;
+      }
+      button {
+        cursor: pointer;
+      }
+    </style>
+    <script
+      async
+      src="https://ga.jspm.io/npm:es-module-shims@1.8.1/dist/es-module-shims.js"
+    ></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three/build/three.module.js",
+          "OrbitControls": "https://unpkg.com/three/examples/jsm/controls/OrbitControls.js",
+          "OBJLoader": "https://unpkg.com/three/examples/jsm/loaders/OBJLoader.js",
+          "MTLLoader": "https://unpkg.com/three/examples/jsm/loaders/MTLLoader.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module" src="main.js"></script>
+    <div class="API">
+      <input
+        type="text"
+        id="reactiveSequenceTextInput"
+        size="23"
+        autocomplete="off"
+        placeholder="type reactive sequence"
+      />
+      <button type="button" id="setReactiveSequenceButton">set sequence</button>
+      <br />
+      <input
+        type="text"
+        id="proactiveSequenceTextInput"
+        size="23"
+        autocomplete="off"
+        placeholder="type proactive sequence"
+      />
+      <button type="button" id="setProactiveSequenceButton">
+        trigger sequence
+      </button>
+      <br />
+      <!--<input
+        type="text"
+        id="peripheralSequenceTextInput"
+        size="23"
+        autocomplete="off"
+        placeholder="type peripheral sequence"
+        disabled
+      />
+      <input type="checkbox" unchecked disabled />
+      <label>peripheral sequence</label>
+      <button type="button" id="setSequenceButton">trigger sequence</button>-->
+    </div>
+    <canvas id="c"></canvas>
+  </body>
+</html>
